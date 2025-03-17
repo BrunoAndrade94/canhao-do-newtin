@@ -16,7 +16,8 @@ class Projetil {
 
     this.trajetoriaPassada = [];
     this.trajetoriaFutura = [];
-    this.numeroDeOrbitas = 0;
+    this.numeroDeOrbitas = 0.0;
+    this.orbitasFracionadas = 0.0;
     this.angulo = 0;
     this.anguloInicial = calcAnguloAtual(this, terra);
     this.deslocamentoAngular = 0;
@@ -67,7 +68,7 @@ class Projetil {
   }
 
   getVelocidadeAtual() {
-    return this.velocidade.mag().toFixed(4);
+    return this.velocidade.mag().toFixed(TO_FIXED);
   }
 
   aumentarVelocidade(fator = FATOR_VELOCIDADE) {
@@ -197,6 +198,12 @@ class Projetil {
     }
 
     this.anguloInicial = anguloAtual;
+
+    this.orbitasFracionadas =
+      this.numeroDeOrbitas + this.deslocamentoAngular / TWO_PI;
+
+    // Formata para uma casa decimal
+    this.orbitasFracionadas = Number(this.orbitasFracionadas.toFixed(4));
   }
 
   colidir() {

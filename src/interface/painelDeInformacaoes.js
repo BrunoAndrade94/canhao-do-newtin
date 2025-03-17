@@ -35,7 +35,7 @@ function PainelDeInformacoes() {
   textSize(16);
   textAlign(RIGHT, TOP);
   text(
-    "Força da Gravidade Atual: " + projetil.forcaGravidade.toFixed(4),
+    "Força da Gravidade Atual: " + projetil.forcaGravidade.toFixed(TO_FIXED),
     900,
     50
   );
@@ -46,8 +46,9 @@ function PainelDeInformacoes() {
   textAlign(RIGHT, TOP);
   text(
     projetil.forcaGravidadeMin === Infinity
-      ? "Força da Gravidade Minima: 0.0000"
-      : "Força da Gravidade Minima: " + projetil.forcaGravidadeMin.toFixed(4),
+      ? "Força da Gravidade Minima: 0.000"
+      : "Força da Gravidade Minima: " +
+          projetil.forcaGravidadeMin.toFixed(TO_FIXED),
     900,
     80
   );
@@ -57,7 +58,8 @@ function PainelDeInformacoes() {
   textSize(16);
   textAlign(RIGHT, TOP);
   text(
-    "Força da Gravidade Máxima: " + projetil.forcaGravidadeMax.toFixed(4),
+    "Força da Gravidade Máxima: " +
+      projetil.forcaGravidadeMax.toFixed(TO_FIXED),
     900,
     110
   );
@@ -67,7 +69,7 @@ function PainelDeInformacoes() {
   textSize(16);
   textAlign(RIGHT, TOP);
   text(
-    "Velocidade Definida: " + projetilVelocidadeInicial.toFixed(4),
+    "Velocidade Definida: " + projetilVelocidadeInicial.toFixed(TO_FIXED),
     900,
     140
   );
@@ -81,11 +83,15 @@ function PainelDeInformacoes() {
   fill(205);
   textSize(16);
   textAlign(RIGHT, TOP);
-  text("Angulo Atual: " + canhao.angulo.toFixed(4), 900, 200);
+  text("Angulo Atual: " + canhao.angulo.toFixed(TO_FIXED), 900, 200);
 
   // gravidade
   fill(205);
   textSize(16);
   textAlign(RIGHT, TOP);
-  text("Número de Órbitas: " + projetil.numeroDeOrbitas.toFixed(2), 900, 230);
+  text(
+    "Número de Órbitas: " + projetil.orbitasFracionadas.toFixed(TO_FIXED),
+    900,
+    230
+  );
 }

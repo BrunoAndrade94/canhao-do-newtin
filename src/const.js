@@ -3,6 +3,8 @@ const HEIGHT = 850;
 const MEIO_WIDTH = WIDTH / 2;
 const MEIO_HEIGHT = HEIGHT / 2;
 
+const TO_FIXED = 3;
+
 const FATOR_GRAVIDADE = 120;
 const FATOR_VELOCIDADE = 0.05;
 const FATOR_ANGULO = 0.05;

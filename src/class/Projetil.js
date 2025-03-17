@@ -12,6 +12,8 @@ class Projetil {
     this.atirou = false;
     this.colidiu = false;
 
+    this.distanciaPercorrida = 0;
+
     this.trajetoriaPassada = [];
     this.trajetoriaFutura = [];
     this.numeroDeOrbitas = 0;
@@ -43,6 +45,25 @@ class Projetil {
 
     this.desenharTrajetoriaPassada();
     this.desenharTrajetoriaFutura();
+  }
+
+  marcarDistancia() {
+    if (!this.movendo) return;
+
+    let ultimaPosicao =
+      this.trajetoriaPassada[this.trajetoriaPassada.length - 1];
+
+    if (ultimaPosicao) {
+      let distancia = dist(
+        this.posicao.x,
+        this.posicao.y,
+        ultimaPosicao.x,
+        ultimaPosicao.y
+      );
+      this.distanciaPercorrida += distancia;
+    }
+
+    this.trajetoriaPassada.push(this.posicao.copy());
   }
 
   getVelocidadeAtual() {
